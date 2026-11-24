@@ -20,18 +20,21 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        k_list=[0,0]
+
         key_lst = pg.key.get_pressed()  # 練習10-3：全キー状態の取得
         # print(key_lst)
         if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
-            kk_rct.move_ip((0, -1))  # 縦に-1動かす
+            k_list[1] -= 1 # 縦に-1動かす
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
-            kk_rct.move_ip((0, +1))  # 縦に+1動かす
+            k_list[1] += 1  # 縦に+1動かす
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip((-1, 0))  # 横に-1動かす            
+            k_list[0] -= 1  # 横に-1動かす            
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip((+2, 0))  # 横に+1動かす
+            k_list[0] += 2  # 横に+1動かす
 
-        kk_rct.move_ip((-1, 0))  # 横に-1動かす 
+        k_list[0] -= 1
+        kk_rct.move_ip(k_list)  # 横に-1動かす 
 
         x = tmr%3200  # 練習5：背景画像移動用の変数／練習9：ループ
         screen.blit(bg_img, [-x, 0])  # 練習2
