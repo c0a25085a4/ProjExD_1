@@ -29,7 +29,9 @@ def main():
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
             kk_rct.move_ip((-1, 0))  # 横に-1動かす            
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip((+1, 0))  # 横に+1動かす
+            kk_rct.move_ip((+2, 0))  # 横に+1動かす
+
+        kk_rct.move_ip((-1, 0))  # 横に-1動かす 
 
         x = tmr%3200  # 練習5：背景画像移動用の変数／練習9：ループ
         screen.blit(bg_img, [-x, 0])  # 練習2
